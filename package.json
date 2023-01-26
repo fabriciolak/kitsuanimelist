@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsx watch src/index.ts"
+    "start": "tsx watch src/index.ts",
+    "start:telegram": "tsx watch src/services/telegram.ts"
   },
   "keywords": [],
   "author": "",
