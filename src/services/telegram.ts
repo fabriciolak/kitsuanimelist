@@ -1,5 +1,7 @@
 import TelegramBot from 'node-telegram-bot-api'
+import { searchAnimeCallback } from '../callbacks/searchAnime'
 import { helpCommand, startCommand } from '../handlers/message'
+import { searchAnime } from '../handlers/searchAnime'
 
 export default function telegramBot() {
   const token = process.env.TELEGRAM_TOKEN
@@ -8,4 +10,13 @@ export default function telegramBot() {
 
   startCommand(bot)
   helpCommand(bot)
+
+
+  // search anime
+
+  searchAnime(bot)
+
+  bot.on("callback_query", (callbackQuery: TelegramBot.CallbackQuery) => {
+    searchAnimeCallback(bot, callbackQuery)
+  })
 }
