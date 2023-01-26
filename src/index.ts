@@ -7,6 +7,7 @@ function init() {
 
   if (args.includes('telegram')) {
     telegramBot()
+    console.log('Bot is running 👻')
   }
 }
 
