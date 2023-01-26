@@ -10,20 +10,7 @@ export function searchAnime(bot: TelegramBot) {
           [{
             text: 'Explorar',
             callback_data: 'search_anime'
-          }],
-          [{
-            text: 'Ler sinopse',
-            callback_data: 'sinopse_anime'
-          }],
-          [{
-            text: 'Ler descrição',
-            callback_data: 'search_anime'
-          }],
-          [{
-            text: 'Assistir trailer',
-            callback_data: 'search_anime'
-          }],
-          
+          }]
         ]
       },
       caption: captionMessage
