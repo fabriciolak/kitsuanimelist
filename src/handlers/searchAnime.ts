@@ -90,11 +90,11 @@ export function searchAnime(bot: TelegramBot) {
         inline_keyboard: [
           [{
             text: 'Explorar',
-            callback_data: 'search_anime'
+            callback_data: `https://kitsu.io/anime/${animeData.slug}`
           }],
           [{
             text: 'Assistir Trailer',
-            callback_data: animeData.youtubeVideoId
+            callback_data: `watch?v=${animeData.youtubeVideoId}`
           }]
         ]
       },
