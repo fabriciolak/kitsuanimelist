@@ -66,8 +66,6 @@ export function searchAnime(bot: TelegramBot) {
 
     const { animeData } = await getAnimeData(match![1])
 
-    // status: "current" | "finished" | "tba" | "unreleased" | "upcoming"
-  
     const translateStatus = {
       current: 'Em exibição',
       finished: 'Finalizado',
