@@ -94,7 +94,7 @@ export function searchAnime(bot: TelegramBot) {
           }],
           [{
             text: 'Assistir Trailer',
-            callback_data: 'trailer_anime'
+            callback_data: animeData.youtubeVideoId
           }]
         ]
       },
