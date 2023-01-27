@@ -35,6 +35,6 @@ export default function telegramBot() {
   })
 
   bot.on("callback_query", (callbackQuery: TelegramBot.CallbackQuery) => {
-    watchAnimeTrailer(bot, { youtubeVideoId: 'CmTeYj2FmRc' },callbackQuery)
+    watchAnimeTrailer(bot, callbackQuery)
   })
 }
