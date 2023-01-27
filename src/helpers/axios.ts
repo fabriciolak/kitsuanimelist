@@ -24,7 +24,7 @@ const data = axios({
 })
 
 export const api = axios.create({
-  baseURL,
+  baseURL: 'https://kitsu.io/api/edge/anime',
   headers: {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${data.then(response => response.data.access_token)}`
