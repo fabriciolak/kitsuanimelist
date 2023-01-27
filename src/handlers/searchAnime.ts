@@ -81,7 +81,7 @@ export function searchAnime(bot: TelegramBot) {
       R18: 'Conteúdo explícito para maiores de 18 anos',
     }
 
-    const captionMessage = `Inglês: ${animeData.titles.en}\nJaponês (Romaji): ${animeData.titles.en_jp}\nJaponês: ${animeData.abbreviatedTitles}\nTipo: ${animeData.showType}\nStatus: ${translateStatus[animeData.status]}\nPeríodo de exibição: ${format(new Date(animeData.startDate), "dd 'de' MM 'de' yyyy", {
+    const captionMessage = `Inglês: ${animeData.titles.en}\nJaponês (Romaji): ${animeData.titles.en_jp}\nJaponês: ${animeData.abbreviatedTitles}\nTipo: ${animeData.showType}\nStatus: ${translateStatus[animeData.status]}\nPeríodo de exibição: ${format(new Date(animeData.startDate), "dd 'do' MM 'de' yyyy", {
       locale: ptBr,
     })}\nClassificação: ${ageRating[animeData.ageRating]}\nDuração: ${animeData.episodeLength} minuto cada`
 
