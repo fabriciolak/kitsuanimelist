@@ -1,4 +1,3 @@
-import axios from "axios";
 import { format } from 'date-fns'
 import ptBr from 'date-fns/locale/pt-BR'
 import TelegramBot from "node-telegram-bot-api";

@@ -10,7 +10,7 @@ export function startCommand(bot: TelegramBot) {
 
 export function helpCommand(bot: TelegramBot) {
   bot.onText(/\/help/, (message: TelegramBot.Message) => {
-    const hello = "Opções disponíveis: \n/start - Iniciar conversa com o bot \n/listar - Listar os animes disponíveis \n/buscar - Buscar anime específico"
+    const hello = "Opções disponíveis: \n/start - Iniciar conversa com o bot\n/buscar - Buscar anime específico"
 
     bot.sendMessage(message.chat.id, hello)
   })
