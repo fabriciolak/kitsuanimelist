@@ -1,22 +1,26 @@
 import TelegramBot from "node-telegram-bot-api";
+import open from "open";
 
-export function searchAnimeCallback(bot: TelegramBot, callbackQuery: TelegramBot.CallbackQuery) {
+export async function searchAnimeCallback(bot: TelegramBot, callbackQuery: TelegramBot.CallbackQuery) {
+  const prefix = "open_browser_kitsu_"
+  const animeSlug = callbackQuery.data?.replace(prefix, "").split('_')[0]
   
-  if (callbackQuery.data?.includes("kitsu.io")) {
+  if (callbackQuery.data?.includes(prefix)) {
     bot.answerCallbackQuery(callbackQuery.id)
-    bot.sendMessage(callbackQuery.message?.chat.id!, `Acesse: ${callbackQuery.data}`)
+    await open(`https://kitsu.io/anime/${animeSlug}`)
   } else {
     return 
   }
 
 }
 
-export function watchAnimeTrailer(bot: TelegramBot, callbackQuery: TelegramBot.CallbackQuery) {
-  const message = `Confira o trailer desse anime incrível aqui:\n\nhttps://www.youtube.com/${callbackQuery.data}`
+export async function watchAnimeTrailer(bot: TelegramBot, callbackQuery: TelegramBot.CallbackQuery) {
+  const prefix = "open_browser_youtube_"
+  const videoId = callbackQuery.data?.replace(prefix, "").split('_')[0]
   
-  if (callbackQuery.data?.includes('watch?v=')) {
+  if (callbackQuery.data?.includes(prefix)) {
     bot.answerCallbackQuery(callbackQuery.id)
-    bot.sendMessage(callbackQuery.message?.chat.id!, message)
+    await open(`https://www.youtube.com/watch?v=${videoId}`)
   } else {
     return
   }
