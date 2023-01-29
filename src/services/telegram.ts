@@ -34,7 +34,7 @@ export default function telegramBot() {
     await searchAnimeCallback(bot, callbackQuery)
   })
 
-  bot.on("callback_query", (callbackQuery: TelegramBot.CallbackQuery) => {
-    watchAnimeTrailer(bot, callbackQuery)
+  bot.on("callback_query", async (callbackQuery: TelegramBot.CallbackQuery) => {
+    await watchAnimeTrailer(bot, callbackQuery)
   })
 }
