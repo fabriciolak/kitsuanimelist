@@ -18,6 +18,9 @@ export async function watchAnimeTrailer(bot: TelegramBot, callbackQuery: Telegra
   const prefix = "open_browser_youtube_"
   const videoId = callbackQuery.data?.replace(prefix, "").split('_')[0]
   
+  console.log('clicado');
+  
+
   if (callbackQuery.data?.includes(prefix)) {
     bot.answerCallbackQuery(callbackQuery.id)
     await open(`https://www.youtube.com/watch?v=${videoId}`)
