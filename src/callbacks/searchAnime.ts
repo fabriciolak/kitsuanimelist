@@ -1,5 +1,6 @@
 import TelegramBot from "node-telegram-bot-api";
 import open from 'open'
+import { exec } from 'child_process'
 
 export async function searchAnimeCallback(bot: TelegramBot, callbackQuery: TelegramBot.CallbackQuery) {
   try {
@@ -9,14 +10,8 @@ export async function searchAnimeCallback(bot: TelegramBot, callbackQuery: Teleg
 
     if (callbackQuery.data?.includes(prefix)) {
       bot.answerCallbackQuery(callbackQuery.id)
-      
-      await open(url)
-        .then(response => {
-          console.log(response);
-        })
-        .catch(err => {
-          console.log('open error', err);  
-        })
+      await open(url, { wait: true })
+      bot.sendMessage(callbackQuery.message?.chat.id!, `Se o link não abriu automaticamente, acesse-o manualmente clicando aqui: ${url}`)
     }
   } catch (error) {
     console.error(`searchAnimeCallback error: `, error);
@@ -34,6 +29,7 @@ export async function watchAnimeTrailer(bot: TelegramBot, callbackQuery: Telegra
     if (callbackQuery.data?.includes(prefix)) {
       bot.answerCallbackQuery(callbackQuery.id)
       await open(url, { wait: true })
+      bot.sendMessage(callbackQuery.message?.chat.id!, `Se o link não abriu automaticamente, acesse-o manualmente clicando aqui: ${url}`)
     }
 
   } catch (error) {
