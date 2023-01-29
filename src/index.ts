@@ -3,12 +3,9 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 function init() {
-  const args = process.argv
+  telegramBot()
 
-  if (args.includes('telegram')) {
-    telegramBot()
-    console.log('Bot is running 👻')
-  }
+  console.log('👻');
 }
 
 init()
