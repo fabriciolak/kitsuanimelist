@@ -14,18 +14,18 @@ export async function searchAnimeCallback(bot: TelegramBot, callbackQuery: Teleg
 
 }
 
-export async function watchAnimeTrailer(bot: TelegramBot, callbackQuery: TelegramBot.CallbackQuery) {
-  const prefix = "open_browser_youtube_"
-  const videoId = callbackQuery.data?.replace(prefix, "").split('_')[0]
-  
-  console.log('clicado');
-  
+export function watchAnimeTrailer(bot: TelegramBot, callbackQuery: TelegramBot.CallbackQuery) {
+  try {
+    const prefix = "open_browser_youtube_"
+    const videoId = callbackQuery.data?.replace(prefix, "").split('_')[0]
+    
+    if (callbackQuery.data?.includes(prefix)) {
+      bot.answerCallbackQuery(callbackQuery.id)
+      open(`https://www.youtube.com/watch?v=${videoId}`, { wait: true })
+    }
 
-  if (callbackQuery.data?.includes(prefix)) {
-    bot.answerCallbackQuery(callbackQuery.id)
-    await open(`https://www.youtube.com/watch?v=${videoId}`)
-  } else {
-    return
+  } catch (error) {
+    console.log(error);
+    
   }
-
 }
